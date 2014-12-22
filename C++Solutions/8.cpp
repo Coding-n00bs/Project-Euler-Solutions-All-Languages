@@ -47,24 +47,20 @@ int main()
                    84580156166097919133875499200524063689912560717606\
                    05886116467109405077541002256983155200055935729725\
                    71636269561882670428252483600823257530420752963450";
-    string gridProcessed = "";
-    for(unsigned int i = 0; i < grid.length() - 1; i++)
-    {
-        if(grid[i] != ' ')
-        {
-            gridProcessed += grid[i];
+    string grid_processed = "";
+    for (unsigned int i = 0; i < grid.length() - 1; i++) {
+        if (grid[i] != ' ') {
+            grid_processed += grid[i];
         }
     }
     int largestProduct = 0;
-    for(unsigned int i = 0; i < gridProcessed.length() - 4; i++)
-    {
-        int product = (gridProcessed[i] - '0') * 
-                      (gridProcessed[i+1] - '0') * 
-                      (gridProcessed[i+2] - '0') *
-                      (gridProcessed[i+3] - '0') *
-                      (gridProcessed[i+4] - '0');
-        if(product > largestProduct)
-        {
+    for (unsigned int i = 0; i < grid_processed.length() - 4; i++) {
+        int product = (grid_processed[i] - '0') *
+                      (grid_processed[i+1] - '0') *
+                      (grid_processed[i+2] - '0') *
+                      (grid_processed[i+3] - '0') *
+                      (grid_processed[i+4] - '0');
+        if (product > largestProduct) {
             largestProduct = product;
         }
     }

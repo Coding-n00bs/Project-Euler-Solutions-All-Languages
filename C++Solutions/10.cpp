@@ -6,10 +6,8 @@ using namespace std;
  *
  * Find the sum of all the primes below two million. */
 
-void markIndex(bool sieve[], int num, const int size)
-{
-    for(int i = (num * 2); i < size; i += num)
-    {
+void markIndex(bool sieve[], int num, const int size) {
+    for (int i = (num * 2); i < size; i += num) {
         sieve[i] = false;
     }
 }
@@ -18,22 +16,17 @@ int main()
 {
     const int SIZE = 2000000;
     bool sieve[SIZE];
-    for(int i = 0; i < SIZE; i++)
-    {
+    for (int i = 0; i < SIZE; i++) {
         sieve[i] = true;
     }
-    for(int i = 2; i < SIZE; i++)
-    {
-        if(sieve[i])
-        {
+    for (int i = 2; i < SIZE; i++) {
+        if(sieve[i]) {
             markIndex(sieve, i, SIZE);
         }
     }
     long sum = 0;
-    for(int i = 2; i < SIZE; i++)
-    {
-        if(sieve[i])
-        {
+    for (int i = 2; i < SIZE; i++) {
+        if (sieve[i]) {
             sum += i;
         }
     }

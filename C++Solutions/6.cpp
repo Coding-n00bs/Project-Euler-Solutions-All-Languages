@@ -8,24 +8,23 @@ using namespace std;
  * The square of the sum of the first ten natural numbers is,
  *
  * (1 + 2 + ... + 10)^2 = 55^2 = 3025
- * Hence the difference between the sum of the squares of the first 
+ * Hence the difference between the sum of the squares of the first
  * ten natural numbers and the square of the sum is 3025 − 385 = 2640.
  *
- * Find the difference between the sum of the squares of the first 
+ * Find the difference between the sum of the squares of the first
  * one hundred natural numbers and the square of the sum. */
 
 int main()
 {
-    int sumOfSquares = 0;
-    int squareOfSums = 0;
-    for(int x = 0; x <= 100; x++)
-    {
-        sumOfSquares += x*x;
-        squareOfSums += x;
+    int sum_of_squares = 0;
+    int square_of_sums = 0;
+    for (int x = 0; x <= 100; x++) {
+        sum_of_squares += x*x;
+        square_of_sums += x;
     }
-    squareOfSums *= squareOfSums;
+    square_of_sums *= square_of_sums;
     // Answer: 25164150
     cout << "Diff between sum of squares and square of sums: "
-         << squareOfSums - sumOfSquares << endl;
+         << square_of_sums - sum_of_squares << endl;
     return 0;
 }

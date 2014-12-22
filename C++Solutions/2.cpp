@@ -15,10 +15,8 @@ int main()
     second = 1;
     next = first + second;
     sum = 0;
-    while(next <= 4000000)
-    {
-        if(next % 2 == 0)
-        {
+    while (next <= 4000000) {
+        if (next % 2 == 0) {
             sum += next;
         }
         first = second;
