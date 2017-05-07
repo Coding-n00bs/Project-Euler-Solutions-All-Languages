@@ -18,14 +18,15 @@ int main()
     int second = 1;
     int next = first + second;
     int sum = next;
-    while(next <= LIMIT) {
-        if(next % 2) {
+    while (next <= LIMIT) {
+        if (next % 2) {
             sum += next;
         }
         first = second;
         second = next;
         next = first + second;
     }
+    // Answer: 4613732
     printf("Sum of all even-valued terms: %d\n", sum);
     return 0;
 }

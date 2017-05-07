@@ -21,7 +21,7 @@ int main()
         }
         divisor++;
     }
-    printf("The largest prime factor: %ld\n",
-            largest_prime_factor);
+    // Answer: 6857
+    printf("The largest prime factor: %ld\n", largest_prime_factor);
     return 0;
 }

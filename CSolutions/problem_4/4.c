@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* Project Euler #4:
  * A palindromic number reads the same both ways.
@@ -8,41 +10,55 @@
  * Find the largest palindrome made from the product of
  * two 3-digit numbers.*/
 
-/* Not Complete Yet! */
-
-int is_palindrome(char *str);
-char* reverse(char *str);
-char* to_string(int number);
+char* to_str(int);
+char* reverse_str(char*);
+int is_palin(int);
 
 int main()
 {
     int product;
     int max = 0;
-    char *str_number;
     for (int x = 100; x < 1000; x++) {
         for (int y = 100; y < 1000; y++) {
             product = x * y;
+            if (is_palin(product) && product > max) {
+                max = product;
+            }
         }
     }
-    return 0;
+    // Answer: 906609
+    printf("The largest palindrome of two 3-digit numbers multiplied: %d\n", max);
+    return 1;
 }
 
-char* to_string(int number)
+// Variation of itoa @ http://www.strudel.org.uk/itoa/
+char* to_str(int val) 
 {
-    int rem;
-    int len = 0;
-    int n = number;
-    while (number != 0) {
-        len++;
-        n /= 10;
+	static char buf[32] = {0};
+	int i = 30;
+    int base = 10;
+	for (; val && i ; --i, val /= base) {
+		buf[i] = "0123456789abcdef"[val % base];
     }
-    char str[len];
-    n = number;
+	return &buf[i + 1];
+}
+
+char* reverse_str(char *string) 
+{
+    int len = strlen(string);
+    char *reversed = malloc(sizeof(char) * len);
     for (int i = 0; i < len; i++) {
-        rem = n % 10;
-        n /= 10;
-        str[len - (i + 1)] = rem + '0';
+        reversed[i] = string[len - (i + 1)];
     }
-    str[len] = '\0';
-    return str;
+    return reversed;
+}
+
+int is_palin(int number)
+{
+    char *str_number = to_str(number);
+    char *reversed_number = reverse_str(str_number);
+    if (strcmp(str_number, reversed_number) == 0) {
+        return 1;
+    }
+    return 0;
 }
