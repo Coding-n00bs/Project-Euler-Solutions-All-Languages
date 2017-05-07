@@ -58,7 +58,9 @@ int is_palin(int number)
     char *str_number = to_str(number);
     char *reversed_number = reverse_str(str_number);
     if (strcmp(str_number, reversed_number) == 0) {
+        free(reversed_number);
         return 1;
     }
+    free(reversed_number);
     return 0;
 }
