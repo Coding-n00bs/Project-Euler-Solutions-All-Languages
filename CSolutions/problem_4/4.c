@@ -34,13 +34,13 @@ int main()
 // Variation of itoa @ http://www.strudel.org.uk/itoa/
 char* to_str(int val) 
 {
-	static char buf[32] = {0};
-	int i = 30;
+    static char buf[32] = {0};
+    int i = 30;
     int base = 10;
-	for (; val && i ; --i, val /= base) {
-		buf[i] = "0123456789abcdef"[val % base];
+    for (; val && i ; --i, val /= base) {
+        buf[i] = "0123456789abcdef"[val % base];
     }
-	return &buf[i + 1];
+    return &buf[i + 1];
 }
 
 char* reverse_str(char *string) 
